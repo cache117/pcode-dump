@@ -28,12 +28,12 @@ public class PeopleCodeDumpFixer
         if (line.matches("\\[[a-zA-Z0-9_]*\\.[a-zA-Z0-9_.]*OnExecute\\]"))
         {
             String newLine = line.substring(0, line.lastIndexOf("."));
-            return newLine.replaceAll("\\.", ":") + ".OnExecute]";
+            return newLine.replaceAll("\\.", ":") + "]";
         }
         if (line.matches("\\[[a-zA-Z0-9_]*\\.[a-zA-Z0-9_]*\\.FieldFormula\\]"))
         {
             String newLine = line.substring(0, line.lastIndexOf("."));
-            return newLine.replaceAll("\\.", "") + " FieldFormula]";
+            return newLine + " FieldFormula]";
         }
         else
         {
