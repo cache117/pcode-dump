@@ -9,6 +9,8 @@ public class PeopleCodeDumpFixer
 {
     public static void main(String[] args)
     {
+        long startTime = System.nanoTime();
+        System.out.println("Start Time = " + startTime);
         try (Stream<String> lines = Files.lines(Paths.get(args[0]));
              PrintWriter writer = new PrintWriter(args[1], "UTF-8")
         )
@@ -21,6 +23,9 @@ public class PeopleCodeDumpFixer
         {
             e.printStackTrace();
         }
+        long endTime = System.nanoTime();
+        System.out.println("End Time = " + endTime);
+        System.out.println("Elapsed Time = " + Long.toString(endTime - startTime));
     }
 
     private static String translateLine(String line)
